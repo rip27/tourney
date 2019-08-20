@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="#D37E30"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Version 1.0 (BETA)"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/logoNdug"
+                android:src="@drawable/logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+        <TextView
+                android:layout_below="@+id/logoNdug"
+                android:textSize="24sp"
+                android:fontFamily="monospace"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textAllCaps="true"
+                android:text="@string/app_name"
+                android:id="@+id/logoFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:layout_below="@+id/logoFont"
+                android:id="@+id/editTextNameRegister"
+                android:textColor="@android:color/black"
+                android:textColorHint="#777"
+                android:paddingHorizontal="20dp"
+                android:hint="@string/email"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        <EditText
+                android:id="@+id/editTextPhoneRegister"
+                android:layout_below="@+id/editTextNameRegister"
+                android:textColor="@android:color/black"
+                android:textColorHint="#777"
+                android:paddingHorizontal="20dp"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/shape_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        <EditText
+                android:inputType="textEmailAddress"
+                android:layout_below="@+id/editTextPhoneRegister"
+                android:id="@+id/editTextEmailRegister"
+                android:textColor="@android:color/black"
+                android:textColorHint="#777"
+                android:paddingHorizontal="20dp"
+                android:hint="@string/email"
+                android:layout_margin="20dp"
+                android:background="@drawable/shape_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        <EditText
+                android:inputType="textPassword"
+                android:id="@+id/editTextPasswordRegister"
+                android:layout_below="@+id/editTextEmailRegister"
+                android:textColor="@android:color/black"
+                android:textColorHint="#777"
+                android:paddingHorizontal="20dp"
+                android:hint="@string/password"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/shape_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+        <Button
+                android:id="@+id/buttonRegister"
+                android:layout_below="@+id/editTextPasswordRegister"
+                android:textColor="@android:color/black"
+                android:text="@string/register"
+                android:textSize="18sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="#fcd989"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/buttonRegister"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="Sudah Punya Akun?"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:id="@+id/loginAkun"
+                    android:textStyle="bold"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="LOGIN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1046493375685",
+    "firebase_url": "https://tourneycuy.firebaseio.com",
+    "project_id": "tourneycuy",
+    "storage_bucket": "tourneycuy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046493375685:android:8762d8d3ee74bfa7",
+        "android_client_info": {
+          "package_name": "com.example.tourney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046493375685-5g5n9o2q7ksn51drsgs77qk0gkica4l0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tourney",
+            "certificate_hash": "52019e0f8cec9db708895dc419e6213a819548d8"
+          }
+        },
+        {
+          "client_id": "1046493375685-s65amd6remshapb3c6r3k1gmjip93dtr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQb48o06GjRSP2nUhZ4CXPutjdjhJmGsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046493375685-s65amd6remshapb3c6r3k1gmjip93dtr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
