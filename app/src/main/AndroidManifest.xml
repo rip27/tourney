@@ -12,7 +12,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".page.DetailTournament">
+        <activity android:name=".page.TambahTour">
+        </activity>
+        <activity android:name=".page.DetailTournament" android:parentActivityName=".page.Dashboard">
         </activity>
         <activity
                 android:name=".page.Dashboard"

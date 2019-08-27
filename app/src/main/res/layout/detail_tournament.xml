@@ -1,9 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".page.DetailTournament">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.Toolbar
+            app:title="DETAIL"
+            android:layout_alignParentTop="true"
+            android:id="@+id/toolbarDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <View
+            android:background="@android:color/black"
+            android:layout_below="@+id/toolbarDetail"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:id="@+id/nameT_detail"
+              android:layout_below="@+id/toolbarDetail"
+              android:text="RESI"
+              android:textAppearance="@style/TextAppearance.AppCompat.Large"
+              android:layout_centerHorizontal="true"
+              android:layout_marginTop="10dp"
+              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:id="@+id/domisiliT_detail"
+              android:layout_below="@+id/nameT_detail"
+              android:text="MALANG KOTA DINGIN"
+              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+              android:layout_centerHorizontal="true"
+              android:layout_height="wrap_content"/>
+    <ImageView android:layout_width="200dp"
+               android:layout_marginTop="10dp"
+               android:layout_centerHorizontal="true"
+               android:layout_below="@+id/domisiliT_detail"
+               android:id="@+id/brosurT_detail"
+               android:src="@drawable/logo"
+               android:layout_height="200dp"/>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/contentprofil"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_below="@+id/brosurT_detail"
+                    android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@drawable/logo"
+                android:id="@+id/profilePanitia_detail"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+        <TextView
+                android:layout_marginStart="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="IPOL"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/profilePanitia_detail"
+                android:id="@+id/name_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:alpha="0.9"
+                android:id="@+id/chat"
+                android:src="@drawable/chat"
+                android:layout_alignParentEnd="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/contentprofil"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Kategori"
+                  android:textColor="@android:color/black"
+                  android:id="@+id/textC"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="Foot"
+                  android:id="@+id/category_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textC"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/cC"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Arena"
+                  android:id="@+id/textA"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="Gajahyana"
+                  android:id="@+id/arena_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textA"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/cA"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="System"
+                  android:id="@+id/textS"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="Knock"
+                  android:id="@+id/system_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textS"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/cS"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Peserta"
+                  android:id="@+id/textP"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="Umum Lah"
+                  android:id="@+id/peserta_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textP"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/cP"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cSL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Slot Tersisa"
+                  android:id="@+id/textSL"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="10"
+                  android:id="@+id/tersisa_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textSL"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="/"
+                  android:id="@+id/garing"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/tersisa_detail"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="32"
+                  android:id="@+id/slot_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/garing"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/cSL"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cDB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Dibuka"
+                  android:id="@+id/textDB"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="12-12-12"
+                  android:id="@+id/dibuka_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textDB"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <RelativeLayout
+            android:layout_marginHorizontal="40dp"
+            android:layout_below="@+id/cDB"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView android:layout_width="100dp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Ditutup"
+                  android:id="@+id/textDT"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:text="12-12-12"
+                  android:id="@+id/ditutup_detail"
+                  android:layout_marginStart="10dp"
+                  android:layout_toEndOf="@+id/textDT"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</RelativeLayout>

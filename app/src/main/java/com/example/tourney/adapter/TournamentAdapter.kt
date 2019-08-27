@@ -88,7 +88,7 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
         }
         holder.ll.setOnClickListener {
             Toast.makeText(mCtx, "Detail", Toast.LENGTH_SHORT).show()
-            val intent: Intent = Intent(mCtx, DetailTournament::class.java)
+            val intent = Intent(mCtx, DetailTournament::class.java)
             intent.putExtra("nama_user", tournamentModel.userModel!!.name)
             intent.putExtra("foto_profile", tournamentModel.userModel!!.profile)
             intent.putExtra("iduser", tournamentModel.iduser)
