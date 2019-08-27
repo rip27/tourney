@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".page.Auth">
         </activity>
+        <activity android:name=".page.Proile"/>
         <activity android:name=".page.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
