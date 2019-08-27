@@ -40,6 +40,10 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        profileOnDashboard.setOnClickListener {
+            startActivity(Intent(this@Dashboard, Proile::class.java))
+        }
+
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
 
