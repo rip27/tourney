@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:id="@+id/ll"
+              android:id="@+id/llp"
               android:layout_margin="10dp"
               android:background="#eee"
               android:padding="5dp"
@@ -13,12 +13,12 @@
         <de.hdodenhof.circleimageview.CircleImageView
                 android:src="@drawable/logo"
                 android:layout_width="50dp"
-                android:id="@+id/profilePanitia"
+                android:id="@+id/profilePanitiaOnP"
                 android:layout_alignParentStart="true"
                 android:layout_height="50dp"/>
         <LinearLayout
-                android:layout_toEndOf="@+id/profilePanitia"
-                android:layout_toStartOf="@+id/simpan"
+                android:layout_toEndOf="@+id/profilePanitiaOnP"
+                android:layout_toStartOf="@+id/btDelete"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -26,36 +26,25 @@
                     android:layout_marginStart="20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:text="RESIX CUP"
-                    android:id="@+id/nameT"
+                    android:id="@+id/nameTonP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             <TextView
                     android:layout_marginStart="20dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:text="Aldi"
-                    android:id="@+id/namePanitia"
+                    android:id="@+id/namePanitiaonP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
 
-        <LinearLayout
-                android:id="@+id/simpan"
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/btDelete"
+                android:src="@android:drawable/ic_menu_delete"
+                android:layout_width="50dp"
                 android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            <de.hdodenhof.circleimageview.CircleImageView
-                    android:contentDescription="Add To Favorite"
-                    android:src="@drawable/ic_add_black"
-                    android:layout_width="50dp"
-                    android:id="@+id/saveT"
-                    android:layout_height="50dp"/>
-            <de.hdodenhof.circleimageview.CircleImageView
-                    android:src="@drawable/ic_check_black"
-                    android:layout_width="50dp"
-                    android:id="@+id/checkedT"
-                    android:visibility="gone"
-                    android:layout_height="50dp"/>
-        </LinearLayout>
+                android:layout_height="50dp"/>
+
     </RelativeLayout>
     <RelativeLayout
             android:layout_width="match_parent"
@@ -66,7 +55,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:layout_margin="10dp"
-                android:id="@+id/brosurT"
+                android:id="@+id/brosurTonP"
                 android:src="@drawable/logo"
                 android:layout_width="150dp"
                 android:layout_height="150dp"/>
@@ -74,7 +63,7 @@
         <LinearLayout
                 android:id="@+id/contentC"
                 android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/brosurT"
+                android:layout_toEndOf="@+id/brosurTonP"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -87,14 +76,14 @@
                     android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:text="Futsal"
-                    android:id="@+id/categoryT"
+                    android:id="@+id/categoryTonP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/contentC"
-                android:layout_toEndOf="@+id/brosurT"
+                android:layout_toEndOf="@+id/brosurTonP"
                 android:id="@+id/contentD"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -107,15 +96,15 @@
             <TextView
                     android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:text="Malang"
-                    android:id="@+id/domisiliT"
+                    android:text="Malang Melintang"
+                    android:id="@+id/domisiliTonP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
                 android:layout_marginTop="5dp"
                 android:id="@+id/contentCU"
-                android:layout_toEndOf="@+id/brosurT"
+                android:layout_toEndOf="@+id/brosurTonP"
                 android:layout_below="@+id/contentD"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -129,14 +118,14 @@
                     android:textAlignment="textEnd"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:text="SMA-Sederajat"
-                    android:id="@+id/pesertaT"
+                    android:id="@+id/pesertaTonP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
                 android:layout_marginTop="5dp"
                 android:id="@+id/contentSLOT"
-                android:layout_toEndOf="@+id/brosurT"
+                android:layout_toEndOf="@+id/brosurTonP"
                 android:layout_below="@+id/contentCU"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
@@ -149,24 +138,16 @@
             <TextView
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:text="32"
-                    android:id="@+id/tersisaT"
+                    android:id="@+id/tersisaTonP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </LinearLayout>
         <Button android:layout_width="match_parent"
-                android:id="@+id/ikutTour"
-                android:background="#D37E30"
-                android:text="IKUT"
-                android:layout_below="@+id/contentSLOT"
-                android:layout_toEndOf="@+id/brosurT"
-                android:layout_height="wrap_content"/>
-        <Button android:layout_width="match_parent"
-                android:id="@+id/updateSlot"
+                android:id="@+id/updateSlotonP"
                 android:background="#fff"
-                android:visibility="gone"
                 android:text="UPDATE SLOT"
                 android:layout_below="@+id/contentSLOT"
-                android:layout_toEndOf="@+id/brosurT"
+                android:layout_toEndOf="@+id/brosurTonP"
                 android:layout_height="wrap_content"/>
     </RelativeLayout>
 </LinearLayout>

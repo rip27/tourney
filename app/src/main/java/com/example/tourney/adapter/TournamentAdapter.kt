@@ -6,10 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tourney.R
@@ -72,13 +69,10 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             .error(R.mipmap.ic_launcher)
             .into(holder.brosurT)
         holder.nameT.text = tournamentModel.nameT
-        holder.categoryT.text = tournamentModel.category
+        holder.categoryT.text = tournamentModel.kategori
         holder.domisiliT.text = tournamentModel.domisili
         holder.pesertaT.text = tournamentModel.peserta
-        holder.slotT.text = tournamentModel.slot
         holder.tersisaT.text = tournamentModel.tersisa
-        holder.dibuka.text = tournamentModel.dibuka
-        holder.ditutup.text = tournamentModel.ditutup
         holder.save.setOnClickListener {
             holder.save.visibility = View.GONE
             holder.check.visibility = View.VISIBLE
@@ -92,9 +86,10 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             intent.putExtra("nama_user", tournamentModel.userModel!!.name)
             intent.putExtra("foto_profile", tournamentModel.userModel!!.profile)
             intent.putExtra("iduser", tournamentModel.iduser)
+            intent.putExtra("id_tournament", tournamentModel.id_tournament)
             intent.putExtra("nameT", tournamentModel.nameT)
             intent.putExtra("brosur", tournamentModel.brosurT)
-            intent.putExtra("category", tournamentModel.category)
+            intent.putExtra("category", tournamentModel.kategori)
             intent.putExtra("domisili", tournamentModel.domisili)
             intent.putExtra("peserta", tournamentModel.peserta)
             intent.putExtra("slot", tournamentModel.slot)
@@ -102,6 +97,13 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             intent.putExtra("dibuka", tournamentModel.dibuka)
             intent.putExtra("ditutup", tournamentModel.ditutup)
             mCtx.startActivity(intent)
+        }
+        if (fauth.currentUser!!.uid == tournamentModel.iduser){
+            holder.update.visibility = View.VISIBLE
+            holder.ikut.visibility = View.GONE
+        }else{
+            holder.update.visibility = View.GONE
+            holder.ikut.visibility = View.VISIBLE
         }
     }
 
@@ -114,12 +116,11 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
         var categoryT: TextView
         var domisiliT: TextView
         var pesertaT: TextView
-        var slotT: TextView
         var tersisaT: TextView
-        var dibuka: TextView
-        var ditutup: TextView
         var save: CircleImageView
         var check: CircleImageView
+        var ikut: Button
+        var update: Button
 
         init {
             ll = itemView.findViewById(R.id.ll)
@@ -130,12 +131,11 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             categoryT = itemView.findViewById(R.id.categoryT)
             domisiliT = itemView.findViewById(R.id.domisiliT)
             pesertaT = itemView.findViewById(R.id.pesertaT)
-            slotT = itemView.findViewById(R.id.slotT)
             tersisaT = itemView.findViewById(R.id.tersisaT)
-            dibuka = itemView.findViewById(R.id.pendaftaranDimulai)
-            ditutup = itemView.findViewById(R.id.pendaftaranBerakhir)
             save = itemView.findViewById(R.id.saveT)
             check = itemView.findViewById(R.id.checkedT)
+            ikut = itemView.findViewById(R.id.ikutTour)
+            update = itemView.findViewById(R.id.updateSlot)
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.tourney.page
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -25,6 +26,7 @@ class DetailTournament : AppCompatActivity() {
         fAuth = FirebaseAuth.getInstance()
 
         val name = intent.getStringExtra("nama_user")
+        val id_tour = intent.getStringExtra("id_tournament")
         val foto = intent.getStringExtra("foto_profile")
         val nameT = intent.getStringExtra("nameT")
         val brosur = intent.getStringExtra("brosur")
@@ -46,16 +48,14 @@ class DetailTournament : AppCompatActivity() {
         slot_detail.text = slot
         dibuka_detail.text = dibuka
         ditutup_detail.text = ditutup
-        Picasso.with(this@DetailTournament)
+        Glide.with(this@DetailTournament)
             .load(foto).error(R.drawable.logo)
-            .centerCrop().resize(50, 50)
-            .into(profilePanitia_detail)
-
+            .centerCrop().into(profilePanitia_detail)
         Picasso.with(this@DetailTournament)
             .load(brosur).error(R.drawable.logo)
             .centerCrop().resize(200, 200)
             .into(brosurT_detail)
-        FirebaseDatabase.getInstance().getReference("tournament/${fAuth.uid}")
+        FirebaseDatabase.getInstance().getReference("tournament/$id_tour")
             .child("arena").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -66,7 +66,7 @@ class DetailTournament : AppCompatActivity() {
 
                 }
             })
-        FirebaseDatabase.getInstance().getReference("tournament/${fAuth.uid}")
+        FirebaseDatabase.getInstance().getReference("tournament/$id_tour")
             .child("system").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -77,6 +77,16 @@ class DetailTournament : AppCompatActivity() {
 
                 }
             })
+        profilePanitia_detail.setOnClickListener {
+            val intent = Intent(this@DetailTournament, DetailFoto::class.java)
+            intent.putExtra("foto", foto)
+            startActivity(intent)
+        }
+        brosurT_detail.setOnClickListener {
+            val intent = Intent(this@DetailTournament, DetailFoto::class.java)
+            intent.putExtra("foto", brosur)
+            startActivity(intent)
+        }
     }
 }
 

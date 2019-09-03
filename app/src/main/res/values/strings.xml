@@ -12,10 +12,23 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="gender">
+    <string-array name="jenisk">
         <item>Laki-Laki</item>
         <item>Perempuan</item>
         <item>Dirahasiakan</item>
+    </string-array>
+
+    <string-array name="system">
+        <item>Knock-Out</item>
+        <item>Group Stage</item>
+        <item>League</item>
+    </string-array>
+
+    <string-array name="peserta">
+        <item>SD/Sederajat</item>
+        <item>SMP/Sederajat</item>
+        <item>SMA/Sederajat</item>
+        <item>Umum</item>
     </string-array>
 
     <string name="menu_home">Home</string>

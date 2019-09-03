@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -22,6 +23,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.nav_header_dashboard.*
 import java.util.*
 
@@ -40,17 +42,13 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        profileOnDashboard.setOnClickListener {
-            startActivity(Intent(this@Dashboard, Proile::class.java))
-        }
 
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
 
         val fab: FloatingActionButton = findViewById(R.id.addTournament)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "${fAuth.uid}", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            startActivity(Intent(this@Dashboard, TambahTour::class.java))
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -165,13 +163,14 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         fAuth.signOut()
         pref.setStatus(false)
         startActivity(Intent(this@Dashboard, Splash::class.java))
+        finish()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
-                // Handle the camera action
+            R.id.nav_profile -> {
+                startActivity(Intent(this@Dashboard, Profile::class.java))
             }
             R.id.nav_gallery -> {
 

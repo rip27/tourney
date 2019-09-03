@@ -27,6 +27,9 @@ class Pref {
         return sharedSet.getString(USER_ID, " ")
     }
 
+    fun getUIDD(): String? {
+        return sharedSet.getString(USER_ID, " ")
+    }
     fun saveCounterId(counter: Int) {
         val edit = sharedSet.edit()
         edit.putInt(COUNTER_ID, counter)
