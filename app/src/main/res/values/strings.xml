@@ -12,6 +12,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+
     <string-array name="jenisk">
         <item>Laki-Laki</item>
         <item>Perempuan</item>

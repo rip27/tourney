@@ -43,6 +43,8 @@
                 android:name=".page.Profile"
                 android:parentActivityName=".page.Dashboard"/>
         <activity android:name=".page.Splash">
+        </activity>
+        <activity android:name=".page.Chat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
