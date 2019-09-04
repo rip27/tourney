@@ -13,6 +13,13 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".page.ProfilePerson"/>
+        <activity android:name=".page.ChangePassword" android:parentActivityName=".page.Setting">
+        </activity>
+        <activity
+                android:name=".page.Setting"
+                android:parentActivityName=".page.Setting">
+        </activity>
         <activity android:name=".page.EditProfile">
         </activity>
         <activity android:name=".page.DetailFoto">

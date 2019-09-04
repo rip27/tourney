@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.util.Log
 import android.webkit.MimeTypeMap
@@ -44,6 +45,10 @@ class EditProfile : AppCompatActivity() {
         fAuth = FirebaseAuth.getInstance()
         firebaseStorage = FirebaseStorage.getInstance()
         storageReference = firebaseStorage.reference
+
+        editback.setOnClickListener {
+            onBackPressed()
+        }
 
         profileEdit.setOnClickListener {
             when {
@@ -183,5 +188,8 @@ class EditProfile : AppCompatActivity() {
         dbRef.child("user/$uidUser/name").setValue(eteditnamao)
         dbRef.child("user/$uidUser/phone").setValue(eto)
         Toast.makeText(this, "Sukses", Toast.LENGTH_SHORT).show()
+        Handler().postDelayed({
+            onBackPressed()
+        }, 1000)
     }
 }

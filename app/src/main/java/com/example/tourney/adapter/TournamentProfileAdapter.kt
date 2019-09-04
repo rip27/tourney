@@ -88,6 +88,43 @@ class TournamentProfileAdapter : RecyclerView.Adapter<TournamentProfileAdapter.T
             val dialog: AlertDialog = builder.create()
             dialog.show()
         }
+        p0.update.setOnClickListener {
+            val builder = AlertDialog.Builder(mCtx)
+            val view = LayoutInflater.from(mCtx).inflate(R.layout.update_slot, null)
+            builder.setView(view)
+            builder.setMessage("Update Slot")
+            val tss = tourModel.tersisa
+            val stk = tourModel.slot
+            val etstok = view.findViewById<EditText>(R.id.et_stok)
+            etstok.setText(tss)
+
+            builder.setPositiveButton("No") { dialog, i ->
+                dialog.dismiss()
+            }
+            builder.setNegativeButton("Yes") { dialog, i ->
+                val sl = tourModel.slot.toString()
+                val stok = etstok.text.toString()
+                if (stok.toInt() > sl.toInt()) {
+                    Toast.makeText(
+                        mCtx,
+                        "Melebihi Slot",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    dbRef = FirebaseDatabase.getInstance()
+                        .getReference("tournament")
+                    dbRef.child(tourModel.key!!).child("tersisa").setValue(stok)
+                    dbRef.push()
+                    Toast.makeText(
+                        mCtx,
+                        "Update Success",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
     }
 
     inner class TournamentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

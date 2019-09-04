@@ -26,6 +26,7 @@ class DetailTournament : AppCompatActivity() {
         fAuth = FirebaseAuth.getInstance()
 
         val name = intent.getStringExtra("nama_user")
+        val iduser = intent.getStringExtra("iduser")
         val id_tour = intent.getStringExtra("id_tournament")
         val foto = intent.getStringExtra("foto_profile")
         val nameT = intent.getStringExtra("nameT")
@@ -87,6 +88,19 @@ class DetailTournament : AppCompatActivity() {
             intent.putExtra("foto", brosur)
             startActivity(intent)
         }
+        if (fAuth.currentUser?.uid != iduser){
+            name_detail.setOnClickListener {
+                val intent = Intent(this@DetailTournament, ProfilePerson::class.java)
+                intent.putExtra("iduser", iduser)
+                startActivity(intent)
+            }
+        }else{
+            name_detail.setOnClickListener {
+                val intent = Intent(this@DetailTournament, Profile::class.java)
+                startActivity(intent)
+            }
+        }
+
     }
 }
 

@@ -16,7 +16,7 @@ class DetailFoto : AppCompatActivity() {
         }
         val foto = intent.getStringExtra("foto")
         Glide.with(this@DetailFoto)
-            .load(foto).error(R.drawable.logo)
+            .load(foto).error(R.drawable.belum)
             .into(fotofoto)
     }
 }

@@ -1,6 +1,7 @@
 package com.example.tourney.page
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -24,6 +25,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.content_dashboard.*
 import kotlinx.android.synthetic.main.nav_header_dashboard.*
 import java.util.*
 
@@ -42,7 +44,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
         fAuth = FirebaseAuth.getInstance()
         pref = Pref(this)
 
@@ -60,7 +61,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("profile").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -76,7 +77,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             })
 
 
-        FirebaseDatabase.getInstance().getReference("user/${pref.getUID()}")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -87,7 +88,7 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
                 }
             })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.currentUser?.uid}")
             .child("email").addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(p0: DataSnapshot) {
@@ -152,7 +153,6 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> true
             R.id.action_logout -> logout()
 
         }
@@ -172,20 +172,8 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.nav_profile -> {
                 startActivity(Intent(this@Dashboard, Profile::class.java))
             }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
             R.id.nav_tools -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
+                startActivity(Intent(this@Dashboard, Setting::class.java))
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

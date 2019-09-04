@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tourney.R
@@ -98,12 +99,49 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             intent.putExtra("ditutup", tournamentModel.ditutup)
             mCtx.startActivity(intent)
         }
-        if (fauth.currentUser!!.uid == tournamentModel.iduser){
+        if (fauth.currentUser!!.uid == tournamentModel.iduser) {
             holder.update.visibility = View.VISIBLE
             holder.ikut.visibility = View.GONE
-        }else{
+        } else {
             holder.update.visibility = View.GONE
             holder.ikut.visibility = View.VISIBLE
+        }
+        holder.update.setOnClickListener {
+            val builder = AlertDialog.Builder(mCtx)
+            val view = LayoutInflater.from(mCtx).inflate(R.layout.update_slot, null)
+            builder.setView(view)
+            builder.setMessage("Update Slot")
+            val tss = tournamentModel.tersisa
+            val stk = tournamentModel.slot
+            val etstok = view.findViewById<EditText>(R.id.et_stok)
+            etstok.setText(tss)
+
+            builder.setPositiveButton("No") { dialog, i ->
+                dialog.dismiss()
+            }
+            builder.setNegativeButton("Yes") { dialog, i ->
+                val sl = tournamentModel.slot.toString()
+                val stok = etstok.text.toString()
+                if (stok.toInt() > sl.toInt()) {
+                    Toast.makeText(
+                        mCtx,
+                        "Melebihi Slot",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    dbRef = FirebaseDatabase.getInstance()
+                        .getReference("tournament")
+                    dbRef.child(tournamentModel.key!!).child("tersisa").setValue(stok)
+                    dbRef.push()
+                    Toast.makeText(
+                        mCtx,
+                        "Update Success",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
     }
 
