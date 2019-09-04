@@ -35,7 +35,7 @@
             android:layout_below="@+id/editTextPhoneRegister"
             android:background="@drawable/shape_edit_text"
             android:layout_marginTop="20dp"
-            android:entries="@array/gender"
+            android:entries="@array/jenisk"
             android:id="@+id/sp_gender"
             android:layout_width="match_parent"
             android:layout_height="50dp"/>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.appcompat.widget.Toolbar
+            app:title="Tambah Tournament"
+            android:id="@+id/toolbarTambahTour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <View android:layout_width="match_parent"
+          android:layout_below="@id/toolbarTambahTour"
+          android:background="#D37E30"
+          android:layout_height="2dp"/>
+    <ScrollView
+            android:layout_below="@+id/toolbarTambahTour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_below="@+id/toolbarTambahTour"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/top"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <ImageView
+                        android:id="@+id/imageBrosur"
+                        android:src="@drawable/upbrosur"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"/>
+                <LinearLayout
+                        android:layout_margin="10dp"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+                    <TextView android:layout_width="wrap_content"
+                              android:text="Nama Tournament"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <EditText android:layout_width="match_parent"
+                              android:hint="Nama"
+                              android:id="@+id/et_nameT"
+                              android:layout_margin="2dp"
+                              android:paddingHorizontal="10dp"
+                              android:background="@drawable/itemt"
+                              android:layout_height="50dp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/cDomisili"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="0dp"
+                              android:layout_marginEnd="10dp"
+                              android:orientation="vertical"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1">
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_marginTop="20dp"
+                              android:text="Domisili"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                            android:background="@drawable/itemt"
+                            android:layout_width="match_parent"
+                            android:id="@+id/contentDomisili"
+                            android:layout_height="50dp">
+                        <TextView android:layout_width="wrap_content"
+                                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                  android:id="@+id/textDomisili"
+                                  android:text="Malang"
+                                  android:layout_centerInParent="true"
+                                  android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp"
+                              android:layout_marginStart="10dp"
+                              android:orientation="vertical"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1">
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_marginTop="20dp"
+                              android:text="Slot"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <EditText android:layout_width="match_parent"
+                              android:id="@+id/slot"
+                              android:hint="Slot"
+                              android:paddingHorizontal="10dp"
+                              android:background="@drawable/itemt"
+                              android:layout_height="50dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/cDomisili"
+                    android:id="@+id/contentKategori"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="Kategori"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                          android:textColor="@android:color/black"
+                          android:layout_height="wrap_content"/>
+
+                <EditText android:layout_width="match_parent"
+                          android:hint="Kategori"
+                          android:id="@+id/kategori"
+                          android:layout_margin="2dp"
+                          android:paddingHorizontal="10dp"
+                          android:background="@drawable/itemt"
+                          android:layout_height="50dp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/contentKategori"
+                    android:id="@+id/contentArena"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="Arena"
+                          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                          android:textColor="@android:color/black"
+                          android:layout_height="wrap_content"/>
+
+                <EditText android:layout_width="match_parent"
+                          android:hint="Arena"
+                          android:id="@+id/arena"
+                          android:layout_margin="2dp"
+                          android:paddingHorizontal="10dp"
+                          android:background="@drawable/itemt"
+                          android:layout_height="50dp"/>
+            </LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginHorizontal="20dp"-->
+            <!--android:layout_below="@+id/contentArena"-->
+            <!--android:orientation="vertical"-->
+            <!--android:id="@+id/contentSystem"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+            <!--android:layout_marginHorizontal="20dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_below="@+id/contentSystem"-->
+            <!--android:id="@+id/contentPeserta"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--</LinearLayout>-->
+            <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/cSystem"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/contentArena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="0dp"
+                              android:layout_marginEnd="10dp"
+                              android:orientation="vertical"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1">
+                    <TextView android:layout_width="wrap_content"
+                              android:text="System"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <Spinner android:layout_width="match_parent"
+                             android:entries="@array/system"
+                             android:id="@+id/system"
+                             android:layout_margin="2dp"
+                             android:paddingHorizontal="10dp"
+                             android:background="@drawable/itemt"
+                             android:layout_height="50dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp"
+                              android:layout_marginStart="10dp"
+                              android:orientation="vertical"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1">
+                    <TextView android:layout_width="wrap_content"
+                              android:text="Peserta"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <Spinner android:layout_width="match_parent"
+                             android:entries="@array/peserta"
+                             android:id="@+id/peserta"
+                             android:layout_margin="2dp"
+                             android:paddingHorizontal="10dp"
+                             android:background="@drawable/itemt"
+                             android:layout_height="50dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:id="@+id/cTanggal"
+                    android:orientation="horizontal"
+                    android:layout_below="@+id/cSystem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <LinearLayout android:layout_width="0dp"
+                              android:layout_marginEnd="10dp"
+                              android:orientation="vertical"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1">
+                    <TextView android:layout_width="wrap_content"
+                              android:text="Dibuka"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <EditText android:layout_width="match_parent"
+                              android:id="@+id/dibuka"
+                              android:hint="Dibuka"
+                              android:inputType="date"
+                              android:paddingHorizontal="10dp"
+                              android:background="@drawable/itemt"
+                              android:layout_height="50dp"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="0dp"
+                              android:layout_marginStart="10dp"
+                              android:orientation="vertical"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1">
+                    <TextView android:layout_width="wrap_content"
+                              android:text="Ditutup"
+                              android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                              android:textColor="@android:color/black"
+                              android:layout_height="wrap_content"/>
+
+                    <EditText android:layout_width="match_parent"
+                              android:id="@+id/ditutup"
+                              android:inputType="datetime"
+                              android:hint="Ditutup"
+                              android:paddingHorizontal="10dp"
+                              android:background="@drawable/itemt"
+                              android:layout_height="50dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <ProgressBar
+                    android:progressBackgroundTint="@android:color/black"
+                    android:id="@+id/progressDownload"
+                    android:visibility="gone"
+                    android:layout_below="@+id/cTanggal"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            <Button
+                    android:layout_marginTop="10dp"
+                    android:background="#D37E30"
+                    android:text="UPLOAD"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_below="@+id/cTanggal"
+                    android:id="@+id/upload_tour"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

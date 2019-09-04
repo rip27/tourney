@@ -11,8 +11,26 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".page.DetailTournament">
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
+        <activity android:name=".page.ProfilePerson"/>
+        <activity android:name=".page.ChangePassword" android:parentActivityName=".page.Setting">
+        </activity>
+        <activity
+                android:name=".page.Setting"
+                android:parentActivityName=".page.Setting">
+        </activity>
+        <activity android:name=".page.EditProfile">
+        </activity>
+        <activity android:name=".page.DetailFoto">
+        </activity>
+        <activity
+                android:name=".page.TambahTour"
+                android:parentActivityName=".page.Dashboard">
+        </activity>
+        <activity
+                android:name=".page.DetailTournament"
+                android:parentActivityName=".page.Dashboard">
         </activity>
         <activity
                 android:name=".page.Dashboard"
@@ -21,7 +39,9 @@
         </activity>
         <activity android:name=".page.Auth">
         </activity>
-        <activity android:name=".page.Proile"/>
+        <activity
+                android:name=".page.Profile"
+                android:parentActivityName=".page.Dashboard"/>
         <activity android:name=".page.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

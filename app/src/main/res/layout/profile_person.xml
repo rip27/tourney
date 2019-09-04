@@ -6,7 +6,7 @@
                 android:layout_height="match_parent">
 
     <ImageView
-            android:id="@+id/potosampul"
+            android:id="@+id/potosampulP"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="#D37E30"/>
@@ -15,7 +15,7 @@
             android:background="@drawable/lingkar"
             android:layout_margin="10dp"
             android:padding="4dp"
-            android:id="@+id/backk"
+            android:id="@+id/backkP"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
             android:layout_width="40dp"
@@ -24,56 +24,40 @@
     />
 
     <RelativeLayout
-            android:id="@+id/ppp"
+            android:id="@+id/pppP"
             android:layout_width="match_parent"
-            android:layout_below="@+id/potosampul"
-            android:layout_height="wrap_content">
-
-
-        <TextView android:id="@+id/btnEdit"
-                  android:layout_margin="10dp"
-                  android:paddingVertical="10dp"
-                  android:paddingHorizontal="30dp"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Edit"
-                  android:textAlignment="center"
-                  android:textStyle="bold"
-                  android:textSize="17sp"
-                  android:textAllCaps="true"
-                  android:textColor="#fff"
-                  android:layout_alignParentEnd="true"
-                  android:background="@drawable/rounded_logout"/>
-    </RelativeLayout>
+            android:layout_below="@+id/potosampulP"
+            android:layout_height="wrap_content"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="Lorem Ipsum"
-              android:layout_above="@+id/ppp"
-              android:id="@+id/tvNama"
+              android:layout_above="@+id/pppP"
+              android:id="@+id/tvNamaP"
               android:layout_margin="10dp"
               android:textSize="22sp"
               android:textColor="#fff"
-              android:layout_toEndOf="@+id/iv_profile"/>
+              android:layout_toEndOf="@+id/iv_profileP"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="54652321365"
-              android:layout_below="@+id/potosampul"
-              android:id="@+id/tvPhone"
+              android:layout_below="@+id/potosampulP"
+              android:id="@+id/tvPhoneP"
               android:layout_margin="10dp"
               android:textSize="22sp"
               android:textColor="#000"
-              android:layout_toEndOf="@+id/iv_profile"/>
+              android:layout_toEndOf="@+id/iv_profileP"/>
     <ImageView
-            android:id="@+id/iv_profile"
-            android:layout_above="@+id/rcv_profile"
+            android:id="@+id/iv_profileP"
+            android:layout_above="@+id/rcv_profileP"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/round"
             android:layout_margin="10dp"
     />
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@+id/ppp"
-            android:id="@+id/rcv_profile"
+            android:layout_below="@+id/tvPhoneP"
+            android:id="@+id/rcv_profileP"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

@@ -67,7 +67,8 @@
                 android:layout_below="@+id/editTextPasswordLogin"
                 android:id="@+id/hideShowPass"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"/>
 
         <ProgressBar
                 android:layout_below="@+id/linearDaftar"

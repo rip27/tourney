@@ -6,10 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tourney.R
@@ -72,13 +70,10 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             .error(R.mipmap.ic_launcher)
             .into(holder.brosurT)
         holder.nameT.text = tournamentModel.nameT
-        holder.categoryT.text = tournamentModel.category
+        holder.categoryT.text = tournamentModel.kategori
         holder.domisiliT.text = tournamentModel.domisili
         holder.pesertaT.text = tournamentModel.peserta
-        holder.slotT.text = tournamentModel.slot
         holder.tersisaT.text = tournamentModel.tersisa
-        holder.dibuka.text = tournamentModel.dibuka
-        holder.ditutup.text = tournamentModel.ditutup
         holder.save.setOnClickListener {
             holder.save.visibility = View.GONE
             holder.check.visibility = View.VISIBLE
@@ -88,13 +83,14 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
         }
         holder.ll.setOnClickListener {
             Toast.makeText(mCtx, "Detail", Toast.LENGTH_SHORT).show()
-            val intent: Intent = Intent(mCtx, DetailTournament::class.java)
+            val intent = Intent(mCtx, DetailTournament::class.java)
             intent.putExtra("nama_user", tournamentModel.userModel!!.name)
             intent.putExtra("foto_profile", tournamentModel.userModel!!.profile)
             intent.putExtra("iduser", tournamentModel.iduser)
+            intent.putExtra("id_tournament", tournamentModel.id_tournament)
             intent.putExtra("nameT", tournamentModel.nameT)
             intent.putExtra("brosur", tournamentModel.brosurT)
-            intent.putExtra("category", tournamentModel.category)
+            intent.putExtra("category", tournamentModel.kategori)
             intent.putExtra("domisili", tournamentModel.domisili)
             intent.putExtra("peserta", tournamentModel.peserta)
             intent.putExtra("slot", tournamentModel.slot)
@@ -102,6 +98,50 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             intent.putExtra("dibuka", tournamentModel.dibuka)
             intent.putExtra("ditutup", tournamentModel.ditutup)
             mCtx.startActivity(intent)
+        }
+        if (fauth.currentUser!!.uid == tournamentModel.iduser) {
+            holder.update.visibility = View.VISIBLE
+            holder.ikut.visibility = View.GONE
+        } else {
+            holder.update.visibility = View.GONE
+            holder.ikut.visibility = View.VISIBLE
+        }
+        holder.update.setOnClickListener {
+            val builder = AlertDialog.Builder(mCtx)
+            val view = LayoutInflater.from(mCtx).inflate(R.layout.update_slot, null)
+            builder.setView(view)
+            builder.setMessage("Update Slot")
+            val tss = tournamentModel.tersisa
+            val stk = tournamentModel.slot
+            val etstok = view.findViewById<EditText>(R.id.et_stok)
+            etstok.setText(tss)
+
+            builder.setPositiveButton("No") { dialog, i ->
+                dialog.dismiss()
+            }
+            builder.setNegativeButton("Yes") { dialog, i ->
+                val sl = tournamentModel.slot.toString()
+                val stok = etstok.text.toString()
+                if (stok.toInt() > sl.toInt()) {
+                    Toast.makeText(
+                        mCtx,
+                        "Melebihi Slot",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    dbRef = FirebaseDatabase.getInstance()
+                        .getReference("tournament")
+                    dbRef.child(tournamentModel.key!!).child("tersisa").setValue(stok)
+                    dbRef.push()
+                    Toast.makeText(
+                        mCtx,
+                        "Update Success",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
         }
     }
 
@@ -114,12 +154,11 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
         var categoryT: TextView
         var domisiliT: TextView
         var pesertaT: TextView
-        var slotT: TextView
         var tersisaT: TextView
-        var dibuka: TextView
-        var ditutup: TextView
         var save: CircleImageView
         var check: CircleImageView
+        var ikut: Button
+        var update: Button
 
         init {
             ll = itemView.findViewById(R.id.ll)
@@ -130,12 +169,11 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             categoryT = itemView.findViewById(R.id.categoryT)
             domisiliT = itemView.findViewById(R.id.domisiliT)
             pesertaT = itemView.findViewById(R.id.pesertaT)
-            slotT = itemView.findViewById(R.id.slotT)
             tersisaT = itemView.findViewById(R.id.tersisaT)
-            dibuka = itemView.findViewById(R.id.pendaftaranDimulai)
-            ditutup = itemView.findViewById(R.id.pendaftaranBerakhir)
             save = itemView.findViewById(R.id.saveT)
             check = itemView.findViewById(R.id.checkedT)
+            ikut = itemView.findViewById(R.id.ikutTour)
+            update = itemView.findViewById(R.id.updateSlot)
         }
     }
 }

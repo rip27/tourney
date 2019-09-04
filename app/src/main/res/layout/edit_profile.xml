@@ -1,71 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-    <ImageView android:layout_width="match_parent" android:layout_height="150dp"
-               android:background="#D37E30"
-    />
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="104dp"
+    <ImageView
+            android:id="@+id/potosampuledit"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#D37E30"/>
+    <RelativeLayout
+            android:background="@android:color/transparent"
+            app:titleTextColor="@android:color/white"
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="46dp"
-            android:background="@drawable/aa"
-            app:civ_border_color="#fff"
-            app:civ_border_width="2dp"
-            android:layout_marginBottom="-54dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView android:layout_width="30dp"
+                   android:id="@+id/editback"
+                   android:layout_margin="15dp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentStart="true"
+                   android:src="@drawable/ic_arrow_back"
+                   android:layout_height="30dp"/>
+        <TextView android:layout_width="match_parent"
+                  android:text="Edit Profile"
+                  android:layout_toEndOf="@+id/editback"
+                  android:layout_centerVertical="true"
+                  android:layout_marginStart="10dp"
+                  android:textSize="28sp"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                  android:textColor="@android:color/white"
+                  android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:background="@drawable/round"
+            android:layout_width="100dp"
+            android:id="@+id/profileEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/v_etname"
+            android:layout_height="100dp"/>
+    <View
+            android:id="@+id/cokwes"
+            android:layout_below="@+id/potosampuledit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+    <LinearLayout
+            android:background="#D37E30"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/v_etname"
+            android:layout_below="@+id/cokwes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText android:layout_width="wrap_content" android:layout_height="wrap_content"
-              android:text="Lorem Ipsum"
-              android:id="@+id/tvNama"
-              android:textStyle="bold"
-              android:textSize="25sp"
-              android:textColor="#000"
-              android:layout_alignParentStart="true" android:layout_marginStart="29dp" android:layout_marginTop="217dp"
-              android:layout_alignParentTop="true"/>
-    <EditText android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/tvStatus"
-              android:text="kuy main"
-              android:textSize="15dp"
-              android:layout_marginTop="255dp" android:layout_alignParentTop="true"
-              android:layout_alignParentStart="true"
-              android:layout_marginStart="32dp"/>
+        <EditText
+                android:hint="Name"
+                android:id="@+id/editTextNameEdit"
+                android:textColor="@android:color/black"
+                android:textColorHint="#777"
+                android:paddingHorizontal="20dp"
+                android:layout_margin="5dp"
+                android:inputType="textPersonName"
+                android:background="@drawable/shape_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:background="#D37E30"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/v_etphone"
+            android:layout_below="@+id/v_etname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/tvLocation"
-              android:text="jakarta"
-              android:textSize="15dp"
-              android:layout_marginTop="281dp" android:layout_alignParentTop="true"
-              android:layout_alignParentStart="true"
-              android:layout_marginStart="32dp"/>
+        <EditText
+                android:hint="Phone"
+                android:id="@+id/editTextPhoneEdit"
+                android:textColor="@android:color/black"
+                android:textColorHint="#777"
+                android:paddingHorizontal="20dp"
+                android:layout_margin="5dp"
+                android:inputType="phone"
+                android:background="@drawable/shape_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+    </LinearLayout>
 
-    <EditText android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/tvTgl"
-              android:text="14 juni 2018"
-              android:textSize="15dp"
-              android:layout_marginTop="310dp"
-              android:layout_alignParentTop="true"
-              android:layout_alignParentStart="true"
-              android:layout_marginStart="30dp"/>
-
-    <TextView android:id="@+id/btnEditProfil"
-              android:layout_width="110dp"
-              android:layout_height="wrap_content"
-              android:text="SAVE"
-              android:textStyle="bold"
-              android:textSize="17sp"
-              android:padding="10dp"
-              android:textAlignment="center"
-              android:background="@drawable/rounded"
-              android:layout_alignParentStart="true" android:layout_marginStart="264dp" android:layout_marginTop="170dp"
-              android:layout_alignParentTop="true"/>
+    <Button
+            android:id="@+id/saveProfile"
+            android:layout_below="@+id/v_etphone"
+            android:textColor="@android:color/black"
+            android:text="SAVE"
+            android:textSize="18sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#fcd989"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 </RelativeLayout>
