@@ -12,7 +12,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.detail_tournament.*
-import kotlinx.android.synthetic.main.nav_header_dashboard.*
 
 class DetailTournament : AppCompatActivity() {
 
@@ -22,6 +21,10 @@ class DetailTournament : AppCompatActivity() {
         setContentView(R.layout.detail_tournament)
         setSupportActionBar(toolbarDetail)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+        chat.setOnClickListener {
+            startActivity(Intent(this@DetailTournament, Chat::class.java))
+        }
 
         fAuth = FirebaseAuth.getInstance()
 
