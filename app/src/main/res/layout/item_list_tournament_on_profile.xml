@@ -146,7 +146,7 @@
                 android:id="@+id/updateSlotonP"
                 android:background="#fff"
                 android:layout_marginTop="5dp"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:text="UPDATE SLOT"
                 android:layout_below="@+id/contentSLOT"
                 android:layout_toEndOf="@+id/brosurTonP"

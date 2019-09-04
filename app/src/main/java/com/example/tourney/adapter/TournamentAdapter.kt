@@ -15,6 +15,7 @@ import com.example.tourney.data.Pref
 import com.example.tourney.model.TournamentModel
 import com.example.tourney.model.UserModel
 import com.example.tourney.page.DetailTournament
+import com.example.tourney.page.IkutTour
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
@@ -103,8 +104,20 @@ class TournamentAdapter : RecyclerView.Adapter<TournamentAdapter.TournamentViewH
             holder.update.visibility = View.VISIBLE
             holder.ikut.visibility = View.GONE
         } else {
-            holder.update.visibility = View.GONE
-            holder.ikut.visibility = View.VISIBLE
+            if (tournamentModel.tersisa!!.toInt() == 0) {
+                holder.ikut.visibility = View.GONE
+                holder.update.visibility = View.GONE
+            } else {
+                holder.update.visibility = View.GONE
+                holder.ikut.visibility = View.VISIBLE
+            }
+        }
+        holder.ikut.setOnClickListener {
+            val intent = Intent(mCtx, IkutTour::class.java)
+            intent.putExtra("iduser2", tournamentModel.iduser)
+            intent.putExtra("iduser1", fauth.currentUser?.uid)
+            intent.putExtra("idtour", tournamentModel.id_tournament)
+            mCtx.startActivity(intent)
         }
         holder.update.setOnClickListener {
             val builder = AlertDialog.Builder(mCtx)

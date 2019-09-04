@@ -14,6 +14,7 @@ class TournamentModel(
     var peserta: String? = null,
     var arena: String? = null,
     var system: String? = null,
+    var price: String? = null,
     var dibuka: String? = null,
     var ditutup: String? = null
 )

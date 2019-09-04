@@ -98,13 +98,15 @@ class TambahTour : AppCompatActivity() {
             val peserta = peserta.selectedItem.toString()
             val dibuka = dibuka.text.toString()
             val ditutup = ditutup.text.toString()
+            val harga = price.text.toString()
 
             if (nameT.isNotEmpty() || domisili.isNotEmpty() ||
                 system.isNotEmpty()|| arena.isNotEmpty() ||
                 slot.isNotEmpty()|| peserta.isNotEmpty() ||
-                dibuka.isNotEmpty() || ditutup.isNotEmpty() || kategori.isNotEmpty()
+                dibuka.isNotEmpty() || ditutup.isNotEmpty() ||
+                kategori.isNotEmpty() || harga.isNotEmpty()
             ) {
-                addTourToFirebase(nameT, domisili, system, arena, slot, peserta, dibuka, ditutup, kategori)
+                addTourToFirebase(nameT, domisili, system, arena, slot, peserta, dibuka, ditutup, kategori, harga)
             } else {
                 Toast.makeText(
                     this,
@@ -124,7 +126,8 @@ class TambahTour : AppCompatActivity() {
         peserta: String,
         dibuka: String,
         ditutup: String,
-        kategori: String
+        kategori: String,
+        harga: String
     ) {
         val nameXXX = UUID.randomUUID().toString()
         val idtour = UUID.randomUUID().toString()
@@ -146,6 +149,7 @@ class TambahTour : AppCompatActivity() {
                 dbRef.child("tersisa").setValue(slot)
                 dbRef.child("dibuka").setValue(dibuka)
                 dbRef.child("ditutup").setValue(ditutup)
+                dbRef.child("price").setValue(harga)
                 FirebaseDatabase.getInstance().getReference("user/")
                     .child("${fAuth.uid}/id")
                     .addListenerForSingleValueEvent(

@@ -140,7 +140,7 @@
                 android:background="#D37E30"
                 android:text="IKUT"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_below="@+id/contentSLOTP"
                 android:layout_toEndOf="@+id/brosurTonPP"
                 android:layout_height="wrap_content"/>

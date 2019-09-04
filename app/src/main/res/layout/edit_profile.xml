@@ -7,10 +7,12 @@
         android:layout_height="match_parent">
 
     <ImageView
+            android:src="@drawable/fontwhite"
             android:id="@+id/potosampuledit"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:background="#D37E30"/>
+
     <RelativeLayout
             android:background="@android:color/transparent"
             app:titleTextColor="@android:color/white"
@@ -29,31 +31,50 @@
                   android:layout_toEndOf="@+id/editback"
                   android:layout_centerVertical="true"
                   android:layout_marginStart="10dp"
-                  android:textSize="28sp"
+                  android:textSize="24sp"
                   android:textAppearance="@style/TextAppearance.AppCompat.Large"
                   android:textColor="@android:color/white"
                   android:layout_height="wrap_content"/>
     </RelativeLayout>
     <de.hdodenhof.circleimageview.CircleImageView
-            android:background="@drawable/round"
             android:layout_width="100dp"
+            android:background="@drawable/round_profile"
             android:id="@+id/profileEdit"
             android:layout_centerHorizontal="true"
             android:layout_above="@+id/v_etname"
             android:layout_height="100dp"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_below="@id/profileEdit"
+              android:id="@+id/bteditProfil"
+              android:textColor="@android:color/white"
+              android:layout_marginTop="10dp"
+              android:background="@drawable/rounded_logout"
+              android:text="Ubah Foto"
+              android:padding="5dp"
+              android:layout_centerHorizontal="true"
+              android:layout_height="wrap_content"/>
     <View
             android:id="@+id/cokwes"
+            android:background="@android:color/transparent"
             android:layout_below="@+id/potosampuledit"
             android:layout_width="match_parent"
             android:layout_height="50dp"/>
     <LinearLayout
             android:background="#D37E30"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_marginHorizontal="20dp"
             android:id="@+id/v_etname"
+            android:orientation="vertical"
             android:layout_below="@+id/cokwes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="Nama"
+                  android:textColor="@android:color/white"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_height="wrap_content"/>
 
         <EditText
                 android:hint="Name"
@@ -70,12 +91,18 @@
     <LinearLayout
             android:background="#D37E30"
             android:layout_marginTop="20dp"
+            android:orientation="vertical"
             android:layout_marginHorizontal="20dp"
             android:id="@+id/v_etphone"
             android:layout_below="@+id/v_etname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+        <TextView android:layout_width="wrap_content"
+                  android:text="Phone"
+                  android:textColor="@android:color/white"
+                  android:layout_marginStart="10dp"
+                  android:layout_marginTop="5dp"
+                  android:layout_height="wrap_content"/>
         <EditText
                 android:hint="Phone"
                 android:id="@+id/editTextPhoneEdit"

@@ -65,7 +65,7 @@ class ChangePassword : AppCompatActivity() {
                         onBackPressed()
                     }, 1000)
                 } else {
-                    Toast.makeText(this@ChangePassword, "Insert Correct Password $pas $lp $np", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ChangePassword, "Insert Correct Password", Toast.LENGTH_SHORT).show()
                 }
             }
             else{

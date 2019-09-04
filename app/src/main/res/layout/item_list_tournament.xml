@@ -159,7 +159,7 @@
                 android:background="#D37E30"
                 android:text="IKUT"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:layout_below="@+id/contentSLOT"
                 android:layout_toEndOf="@+id/brosurT"
                 android:layout_height="wrap_content"/>
@@ -169,7 +169,7 @@
                 android:layout_marginTop="5dp"
                 android:visibility="gone"
                 android:text="UPDATE SLOT"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 android:layout_below="@+id/contentSLOT"
                 android:layout_toEndOf="@+id/brosurT"
                 android:layout_height="wrap_content"/>

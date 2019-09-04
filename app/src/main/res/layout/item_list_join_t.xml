@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_margin="10dp"
+              android:padding="10dp"
+              android:background="@drawable/round"
+              android:id="@+id/lljt"
+              android:layout_height="wrap_content">
+
+    <TextView android:layout_width="wrap_content"
+              android:text="OICOIO"
+              android:id="@+id/tv_namatt"
+              android:textAppearance="@style/TextAppearance.AppCompat.Large"
+              android:layout_height="wrap_content"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_marginTop="5dp"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="2"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Kategori"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="3"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                  android:text="Futsalii"
+                  android:id="@+id/tv_kate"
+                  android:textColor="@android:color/black"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+</LinearLayout>

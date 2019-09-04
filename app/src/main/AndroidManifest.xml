@@ -13,12 +13,30 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
+        <activity android:name=".page.DetailJoin" android:parentActivityName=".page.Join">
+        </activity>
+        <activity
+                android:name=".page.JoinT"
+                android:parentActivityName=".page.Dashboard">
+        </activity>
+        <activity
+                android:name=".page.JoinMine"
+                android:parentActivityName=".page.JoinT">
+        </activity>
+        <activity
+                android:name=".page.Join"
+                android:parentActivityName=".page.Dashboard">
+        </activity>
+        <activity android:name=".page.IkutTour">
+        </activity>
         <activity android:name=".page.ProfilePerson"/>
-        <activity android:name=".page.ChangePassword" android:parentActivityName=".page.Setting">
+        <activity
+                android:name=".page.ChangePassword"
+                android:parentActivityName=".page.Setting">
         </activity>
         <activity
                 android:name=".page.Setting"
-                android:parentActivityName=".page.Setting">
+                android:parentActivityName=".page.Dashboard">
         </activity>
         <activity android:name=".page.EditProfile">
         </activity>

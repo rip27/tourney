@@ -24,36 +24,33 @@ import java.util.ArrayList
 class Profile : AppCompatActivity() {
 
     lateinit var preferences: Pref
-    lateinit var storageReference: StorageReference
-    lateinit var firebaseStorage: FirebaseStorage
     lateinit var dbRef: DatabaseReference
     private lateinit var fAuth: FirebaseAuth
     private var tournamentProfileAdapter: TournamentProfileAdapter? = null
     private var recyclerView: RecyclerView? = null
     private var list: MutableList<TournamentModel> = ArrayList()
-    lateinit var filePathImage: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.profile)
+        setSupportActionBar(toolbarProfile)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         preferences = Pref(this)
         fAuth = FirebaseAuth.getInstance()
-        firebaseStorage = FirebaseStorage.getInstance()
-        storageReference = firebaseStorage.reference
 
         val userid = fAuth.currentUser?.uid
         val dataUserRef = FirebaseDatabase.getInstance().getReference("user/$userid")
 
 
         dataUserRef.child("name").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    tvNama.text = p0.value.toString()
-                }
+            override fun onDataChange(p0: DataSnapshot) {
+                tvNama.text = p0.value.toString()
+            }
 
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
+            override fun onCancelled(p0: DatabaseError) {
+            }
+        })
         dataUserRef.child("phone").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     tvPhone.text = p0.value.toString()
@@ -79,27 +76,6 @@ class Profile : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError) {
             }
         })
-        dataUserRef.child("foto_sampul").addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(p0: DataSnapshot) {
-                Glide.with(this@Profile).load(p0.value.toString())
-                    .centerCrop()
-                    .error(R.drawable.fontblack)
-                    .into(potosampul)
-                potosampul.setOnClickListener {
-                    Toast.makeText(this@Profile, "Sampul", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@Profile, DetailFoto::class.java)
-                    intent.putExtra("foto", p0.value.toString())
-                    startActivity(intent)
-                }
-            }
-
-            override fun onCancelled(p0: DatabaseError) {
-            }
-        })
-
-        backk.setOnClickListener {
-            onBackPressed()
-        }
 
         var linearLayoutManager = LinearLayoutManager(this)
         recyclerView = findViewById(R.id.rcv_profile)

@@ -50,7 +50,7 @@ class EditProfile : AppCompatActivity() {
             onBackPressed()
         }
 
-        profileEdit.setOnClickListener {
+        bteditProfil.setOnClickListener {
             when {
                 (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
                     if (ContextCompat.checkSelfPermission(

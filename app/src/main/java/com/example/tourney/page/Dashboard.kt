@@ -175,6 +175,12 @@ class Dashboard : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.nav_tools -> {
                 startActivity(Intent(this@Dashboard, Setting::class.java))
             }
+            R.id.nav_join -> {
+                startActivity(Intent(this@Dashboard, Join::class.java))
+            }
+            R.id.nav_join_mine -> {
+                startActivity(Intent(this@Dashboard, JoinT::class.java))
+            }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)

@@ -12,6 +12,14 @@
                 android:id="@+id/nav_tools"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Setting"/>
+        <item
+                android:id="@+id/nav_join"
+                android:icon="@drawable/ic_event_available"
+                android:title="Join"/>
+        <item
+                android:id="@+id/nav_join_mine"
+                android:icon="@drawable/ic_event_note"
+                android:title="Approving Join"/>
     </group>
 
 </menu>
