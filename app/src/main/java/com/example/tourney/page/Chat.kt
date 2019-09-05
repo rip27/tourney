@@ -8,16 +8,26 @@ import com.example.tourney.R
 import com.example.tourney.adapter.ChatAdapter
 import com.example.tourney.model.ChatModel
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.chat.*
 
 class Chat : AppCompatActivity() {
 
     var dbRef: DatabaseReference? = null
+    lateinit var fAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chat)
+
+        fAuth = FirebaseAuth.getInstance()
+        textnamechat.text = intent.getStringExtra("namatujuan")
+
+        chatback.setOnClickListener {
+            onBackPressed()
+        }
+
         initFirebase()
 
         setupSendButton()
@@ -40,7 +50,7 @@ class Chat : AppCompatActivity() {
         //init firebase
         FirebaseApp.initializeApp(applicationContext)
 
-        FirebaseDatabase.getInstance().setLogLevel(Logger.Level.DEBUG)
+//        FirebaseDatabase.getInstance().setLogLevel(Logger.Level.DEBUG)
 
         //get reference to our db
         dbRef = FirebaseDatabase.getInstance().reference
@@ -53,7 +63,7 @@ class Chat : AppCompatActivity() {
                 val toReturn: ArrayList<ChatModel> = ArrayList()
 
                 for (data in dataSnapshot.children) {
-                    val messageData = data.getValue<ChatModel>(ChatModel::class.java)
+                    val messageData = data.getValue(ChatModel::class.java)
 
                     //unwrap
                     val message = messageData?.let { it } ?: continue
@@ -73,13 +83,15 @@ class Chat : AppCompatActivity() {
                 //log error
             }
         }
-        dbRef?.child("messages")?.addValueEventListener(postListener)
+        dbRef?.child("messages")?.orderByChild("fromid")?.equalTo(fAuth.currentUser?.uid)?.addValueEventListener(postListener)
     }
 
 
     private fun sendData() {
+//        dbRef?.child("messages")?.child(java.lang.String.valueOf(System.currentTimeMillis()))
+//            ?.setValue(ChatModel(mainActivityEditText.text.toString()))
         dbRef?.child("messages")?.child(java.lang.String.valueOf(System.currentTimeMillis()))
-            ?.setValue(ChatModel(mainActivityEditText.text.toString()))
+            ?.setValue(ChatModel(mainActivityEditText.text.toString(), intent.getStringExtra("iduser"), fAuth.currentUser?.uid))
 
         //clear the text
         mainActivityEditText.setText("")

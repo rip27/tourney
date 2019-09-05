@@ -26,9 +26,6 @@ class DetailTournament : AppCompatActivity() {
         setSupportActionBar(toolbarDetail)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        chat.setOnClickListener {
-            startActivity(Intent(this@DetailTournament, Chat::class.java))
-        }
 
         fAuth = FirebaseAuth.getInstance()
 
@@ -45,6 +42,7 @@ class DetailTournament : AppCompatActivity() {
         val tersisa = intent.getStringExtra("tersisa")
         val dibuka = intent.getStringExtra("dibuka")
         val ditutup = intent.getStringExtra("ditutup")
+
 
 
         nameT_detail.text = nameT
@@ -108,6 +106,12 @@ class DetailTournament : AppCompatActivity() {
             startActivity(intent)
         }
         if (fAuth.currentUser?.uid != iduser){
+            chat.setOnClickListener {
+                val intent = Intent(this@DetailTournament, Chat::class.java)
+                intent.putExtra("namatujuan", name)
+                intent.putExtra("idtujuan", iduser)
+                startActivity(intent)
+            }
             if (tersisa!!.toInt() == 0)
             {
                 ikutTourDetail.visibility = View.GONE
@@ -126,6 +130,7 @@ class DetailTournament : AppCompatActivity() {
                 startActivity(intent)
             }
         }else{
+            chat.visibility = View.GONE
             ikutTourDetail.visibility = View.GONE
             updateSlotDetail.visibility = View.VISIBLE
             updateSlotDetail.setOnClickListener {

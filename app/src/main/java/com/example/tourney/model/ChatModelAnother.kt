@@ -1,6 +1,6 @@
 package com.example.tourney.model
 
-class ChatModel (
+class ChatModelAnother (
     var text: String? = null,
     var toid: String? = null,
     var fromid: String? = null,
