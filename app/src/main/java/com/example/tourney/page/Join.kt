@@ -45,18 +45,30 @@ class Join : AppCompatActivity() {
         recyclerView!!.setHasFixedSize(true)
         dbRef = FirebaseDatabase.getInstance()
             .reference.child("join/")
-        dbRef.orderByChild("iduser1").equalTo(userid).addValueEventListener(object : ValueEventListener {
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 list = ArrayList()
-                for (dataSnapshot in p0.children) {
-                    val addDataAll = dataSnapshot.getValue(
-                        JoinModel::class.java
-                    )
-                    addDataAll!!.key = dataSnapshot.key
-                    list.add(addDataAll)
-                    joinAdapter = JoinAdapter(this@Join, list)
-                    recyclerView!!.adapter = joinAdapter
+                p0.children.forEach {
+                    it.children.forEach {it2->
+                        val addDataAll = it2.getValue(
+                            JoinModel::class.java)
+                        addDataAll!!.key = it2.key
+                        if (addDataAll.iduser1.toString() == userid) {
+                            list.add(addDataAll)
+                        }
+                    }
                 }
+                joinAdapter = JoinAdapter(this@Join, list)
+                recyclerView!!.adapter = joinAdapter
+//                for (dataSnapshot in p0.children) {
+//                    val addDataAll = dataSnapshot.getValue(
+//                        JoinModel::class.java
+//                    )
+//                    addDataAll!!.key = dataSnapshot.key
+//                    list.add(addDataAll)
+//                    joinAdapter = JoinAdapter(this@Join, list)
+//                    recyclerView!!.adapter = joinAdapter
+//                }
             }
 
             override fun onCancelled(p0: DatabaseError) {
